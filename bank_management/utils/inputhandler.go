@@ -38,3 +38,20 @@ func GetAccountID() string {
 	fmt.Scanf("%v", &accID)
 	return accID
 }
+
+func GetMoney() float64 {
+	var money float64
+	fmt.Println("Enter amount to deposit : ")
+	fmt.Scanf("%f", &money)
+	return money
+}
+
+func GetMoneyToWithDraw() float64 {
+
+	var money float64
+
+	fmt.Println("Enter amount to withdraw : ")
+	fmt.Scanf("%f", &money)
+	return money
+
+}
