@@ -32,26 +32,34 @@ func GetAccountHolderName() string {
 	}
 }
 
-func GetAccountID() string {
-	var accID string
-	fmt.Println("Enter account id : ")
-	fmt.Scanf("%v", &accID)
-	return accID
-}
+// func GetAccountID() string {
+// 	var accID string
+// 	fmt.Println("Enter account id : ")
+// 	fmt.Scanf("%v", &accID)
 
-func GetMoney() float64 {
-	var money float64
+// 	return accID
+// }
+
+func GetAmount() float64 {
+	var amount float64
 	fmt.Println("Enter amount to deposit : ")
-	fmt.Scanf("%f", &money)
-	return money
+	fmt.Scanf("%f", &amount)
+	return amount
 }
 
-func GetMoneyToWithDraw() float64 {
+func GetWithDrawAmount(total float64) float64 {
 
-	var money float64
+	var amount float64
 
-	fmt.Println("Enter amount to withdraw : ")
-	fmt.Scanf("%f", &money)
-	return money
+	for {
+		fmt.Println("Enter amount to withdraw : ")
+		fmt.Scanf("%f", &amount)
+		isValid, err := validateWithDrawAmount(total, amount)
+		if isValid {
+			return amount
+		} else {
+			fmt.Println(err)
+		}
+	}
 
 }
