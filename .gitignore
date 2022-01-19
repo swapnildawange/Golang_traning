@@ -1,5 +1,8 @@
-slice.go
-main.go
-go.sum
 
-module/sliceOperations/
+
+module/
+bank_management/
+calculator/
+hangman_game/
+hello/
+*.txt
