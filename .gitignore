@@ -2,3 +2,8 @@ slice.go
 main.go
 
 module/sliceOperations/
+calculator/
+concurrency/
+hangman_game/
+hello/
+module/
