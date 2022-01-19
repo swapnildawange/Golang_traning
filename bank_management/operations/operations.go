@@ -19,14 +19,16 @@ func CreateAccount() (string, string) {
 	var account AccountInfo
 	accID := account.Create(accountHolderName)
 	accountHolders[accID] = &account
-	
+
 	return accountHolderName, accID
 }
 
 func DeleteAccount() {
 	accID := GetAccountID()
-	var account AccountInfo
-	account.Delete(accID)
+	// var account AccountInfo
+	// account.Delete(accID)
+	delete(accountHolders, accID)
+	fmt.Println("Account deleted successfully")
 }
 
 func DepositMoney() {

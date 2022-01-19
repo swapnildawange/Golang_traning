@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-type bankInterface interface {
+type BankServices interface {
 
 	// Methods
 	Create(name string) string
@@ -37,17 +37,14 @@ func (account *AccountInfo) Create(name string) string {
 	return account.AccID
 }
 
-func (account *AccountInfo) Delete(accID string) {
-	account = nil
-	fmt.Println("Account deleted successfully")
-}
+
 
 func (account *AccountInfo) Deposit(accID string, amount float64) {
 	account.AccID = accID
 	// account.AccountHolderName = accountHolders[accID].AccountHolderName
 	latestAmount := amount + account.Amount
 	account.Amount = latestAmount
-	fmt.Printf("Amount deposited successfully. Current balance is %v\n", account.Amount)
+	fmt.Printf("Amount credited successfully. Current balance is %v\n", account.Amount)
 }
 func (account *AccountInfo) Withdraw(accID string, amount float64) {
 	latestAmount := account.Amount - amount
