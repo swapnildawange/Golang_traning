@@ -44,7 +44,7 @@ func (account *AccountInfo) Deposit(accID string, amount float64) {
 	// account.AccountHolderName = accountHolders[accID].AccountHolderName
 	latestAmount := amount + account.Amount
 	account.Amount = latestAmount
-	fmt.Printf("Amount credited successfully. Current balance is %v\n", account.Amount)
+	fmt.Printf("Amount deposited successfully. Current balance is %v\n", account.Amount)
 }
 func (account *AccountInfo) Withdraw(accID string, amount float64) {
 	latestAmount := account.Amount - amount

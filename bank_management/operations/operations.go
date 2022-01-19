@@ -25,8 +25,6 @@ func CreateAccount() (string, string) {
 
 func DeleteAccount() {
 	accID := GetAccountID()
-	// var account AccountInfo
-	// account.Delete(accID)
 	delete(accountHolders, accID)
 	fmt.Println("Account deleted successfully")
 }
