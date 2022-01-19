@@ -7,8 +7,6 @@ import (
 )
 
 func main() {
-	var customers map[string]bankOperation.AccountInfo = make(map[string]bankOperation.AccountInfo)
-	var history map[string][]bankOperation.AccountHistory = make(map[string][]bankOperation.AccountHistory)
 
 mainLoop:
 
@@ -17,41 +15,24 @@ mainLoop:
 		selectedOperation := bankUtils.GetSelectedOperation()
 
 		switch selectedOperation {
-		// create account
 		case 1:
-			accountInfo, accID := bankOperation.CreateAccount() // create account and return account info
-			customers[accID] = accountInfo
-			fmt.Printf("Name : %v\nAccount ID : %v\n",accountInfo.AccountHolderName, accID)
-			// delete account
+			// create account
+			name, accID := bankOperation.CreateAccount() // create account and return account info
+			fmt.Printf("Name : %v\nAccount ID : %v\n", name, accID)
+
 		case 2:
-			accID := bankUtils.GetAccountID()
-			customers = bankOperation.DeleteAccount(customers, accID)
-			// deposit money
+			// delete account
+			bankOperation.DeleteAccount()
+
 		case 3:
-			accID := bankUtils.GetAccountID()
-			money := bankUtils.GetMoney()
-			customers = bankOperation.DepositMoney(customers, accID, money)
-			// add to history
-			history[accID] = append(history[accID], bankOperation.AddToHistory(accID, money, "deposit"))
-			// withdraw money
+			bankOperation.DepositMoney()
+
 		case 4:
-			accID := bankUtils.GetAccountID()
-			for {
-				money := bankUtils.GetMoneyToWithDraw()
-				if money <= customers[accID].Amount {
-					customers = bankOperation.WithDrawMoney(customers, accID, money)
-					// add to history
-					history[accID] = append(history[accID], bankOperation.AddToHistory(accID, money, "withdraw"))
-					break
-				} else {
-					fmt.Println("Insufficient balance")
-				}
-			}
+			bankOperation.WithDrawMoney()
+
 		case 5:
-			accID := bankUtils.GetAccountID()
-			name := customers[accID].AccountHolderName
-			total:=customers[accID].Amount
-			bankOperation.Gethistory(name,accID,total, history)
+			bankOperation.GetHistory()
+
 		case 6:
 			break mainLoop
 

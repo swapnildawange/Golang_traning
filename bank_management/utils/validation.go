@@ -36,11 +36,13 @@ func validateName(name string) (bool, string) {
 	}
 }
 
-// func validateWithDrawAmount(customerDetails bankOperation.AccountInfo, amount float64) (bool, string) {
+func validateWithDrawAmount(total float64,amount float64) (bool, string) {
 
-// 	if amount > 0 {
-// 		return true, ""
-// 	} else {
-// 		return false, "Enter correct amount"
-// 	}
-// }
+	if amount > 0 && amount <= total {
+		return true, ""
+	} else {
+		return false, "Enter correct amount"
+	}
+}
+
+
