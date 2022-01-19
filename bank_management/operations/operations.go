@@ -3,7 +3,6 @@ package operations
 import (
 	bankUtils "bank/utils"
 	"fmt"
-
 	"github.com/google/uuid"
 )
 
@@ -19,7 +18,7 @@ func CreateAccount() (string, string) {
 	var account AccountInfo
 	accID := account.Create(accountHolderName)
 	accountHolders[accID] = &account
-	
+
 	return accountHolderName, accID
 }
 

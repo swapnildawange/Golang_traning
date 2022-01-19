@@ -1,4 +1,5 @@
 slice.go
 main.go
+go.sum
 
 module/sliceOperations/

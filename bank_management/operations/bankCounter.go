@@ -5,7 +5,7 @@ import (
 	"time"
 )
 
-type bankInterface interface {
+type bankServices interface {
 
 	// Methods
 	Create(name string) string
